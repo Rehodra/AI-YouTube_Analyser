@@ -1,0 +1,143 @@
+import { Check, Sparkles, Zap, Crown } from 'lucide-react';
+import FadeIn from '../components/ui/FadeIn';
+import { Link } from 'react-router-dom';
+
+const Pricing = () => {
+  const plans = [
+    {
+      name: "Free",
+      price: "0",
+      description: "Perfect for trying out",
+      icon: Sparkles,
+      color: "slate",
+      features: [
+        "1 analysis per month",
+        "Title suggestions",
+        "Copyright scan",
+        "Email delivery"
+      ],
+      cta: "Get Started Free",
+      popular: false
+    },
+    {
+      name: "Pro",
+      price: "29",
+      description: "For serious creators",
+      icon: Zap,
+      color: "sky",
+      features: [
+        "Unlimited analyses",
+        "All 6 intel services",
+        "Multi-platform strategy",
+        "Trend predictions",
+        "Priority support"
+      ],
+      cta: "Start Pro Trial",
+      popular: true
+    },
+    {
+      name: "Team",
+      price: "99",
+      description: "For agencies & teams",
+      icon: Crown,
+      color: "purple",
+      features: [
+        "Everything in Pro",
+        "Up to 10 members",
+        "Shared dashboard",
+        "API access",
+        "Priority 24/7"
+      ],
+      cta: "Contact Sales",
+      popular: false
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-50 pt-32 pb-16 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <FadeIn delay={0}>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-6">
+              <Sparkles size={12} />
+              Simple Pricing
+            </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">
+              Choose Your Plan
+            </h1>
+            <p className="text-slate-500 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+              Start free, upgrade when you're ready. All plans include core AI analysis features.
+            </p>
+          </div>
+        </FadeIn>
+
+        {/* Pricing Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {plans.map((plan, index) => {
+            const IconComponent = plan.icon;
+
+            return (
+              <FadeIn key={plan.name} delay={index * 100}>
+                <div className={`relative bg-white rounded-2xl border-2 p-6 transition-all hover:shadow-lg ${plan.popular
+                  ? 'border-sky-500 shadow-sm shadow-sky-500/10'
+                  : 'border-slate-200 hover:border-slate-300'
+                  }`}>
+                  {plan.popular && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="bg-slate-900 text-white px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest shadow-lg">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="text-center mb-6">
+                    <div className={`inline-flex p-2 rounded-xl bg-${plan.color}-50 mb-3`}>
+                      <IconComponent className={`text-${plan.color}-600`} size={20} />
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">{plan.name}</h3>
+                    <p className="text-xs text-slate-500 mb-4 leading-relaxed">{plan.description}</p>
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span className="text-3xl font-bold text-slate-900">${plan.price}</span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">/mo</span>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        <Check className={`text-${plan.color}-600 flex-shrink-0 mt-0.5`} size={14} />
+                        <span className="text-xs text-slate-600">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    to="/register"
+                    className={`block w-full text-center py-3 rounded-lg font-bold text-[10px] uppercase tracking-widest transition-all ${plan.popular
+                      ? 'bg-slate-900 text-white shadow-lg shadow-slate-200 hover:bg-slate-800'
+                      : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
+                      }`}
+                  >
+                    {plan.cta}
+                  </Link>
+                </div>
+              </FadeIn>
+            );
+          })}
+        </div>
+
+        {/* FAQ or Additional Info */}
+        <FadeIn delay={400}>
+          <div className="mt-12 text-center">
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
+              GDPR Compliant & Secure
+            </p>
+          </div>
+        </FadeIn>
+      </div>
+    </div>
+  );
+};
+
+export default Pricing;

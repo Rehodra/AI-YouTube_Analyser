@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+motor
+pydantic[email]
+pydantic-settings
+google-genai
+bcrypt
+python-jose[cryptography]
+python-multipart
+cloudinary
+authlib
+httpx
+itsdangerous
