@@ -1,6 +1,6 @@
 # TubeIntelligence - AI-Powered YouTube Analytics Platform
 
-> **Stop guessing. Start growing.** Get AI-powered insights that tell you *exactly* what to fix, what to post next, and how to 10x your YouTube channel growth—delivered straight to your inbox.
+> **TubeIntelligence** is an ***AI-powered analytics platform*** that helps YouTube creators make smarter content decisions. We analyze your videos and provide actionable insights on titles, thumbnails, CTR predictions, copyright protection, and multi-platform strategies to grow your channel.
 
 ![Platform](https://img.shields.io/badge/Platform-YouTube-red)
 ![AI](https://img.shields.io/badge/AI-Gemini%202.5-blue)
@@ -91,6 +91,7 @@ The platform combines YouTube Data API for channel metrics, Gemini AI for intell
 - **AI:** Google Gemini 2.5 Flash
 - **Authentication:** JWT, OAuth 2.0 (Authlib)
 - **APIs:** YouTube Data API v3
+- **Email:** Resend (for report delivery)
 - **Storage:** Cloudinary (avatar uploads)
 - **Security:** bcrypt password hashing
 
@@ -100,34 +101,36 @@ The platform combines YouTube Data API for channel metrics, Gemini AI for intell
 - **Routing:** React Router v7
 - **Styling:** TailwindCSS
 - **Icons:** Lucide React
+- **Animations:** Framer Motion
 - **HTTP Client:** Axios
 - **State Management:** Context API
 
 ## 📁 Project Structure
 
 ```
-yt-recomender/
+yt-recommender/
 ├── backend/
 │   ├── app/
-│   │   ├── core/          # Configuration, worker
-│   │   ├── db/            # Database utilities
-│   │   ├── models/        # Pydantic models
+│   │   ├── core/          # Configuration & worker
+│   │   ├── db/            # Database connection
+│   │   ├── models/        # Data models
 │   │   ├── routes/        # API endpoints
 │   │   ├── schemas/       # Request/response schemas
-│   │   ├── services/      # Business logic (AI, YouTube, MongoDB)
-│   │   └── utils/         # Auth helpers, session management
+│   │   ├── services/      # Business logic (AI, YouTube, Email, Cloudinary)
+│   │   ├── utils/         # Auth & session helpers
+│   │   └── main.py        # Application entry point
 │   ├── requirements.txt
 │   └── .env
 ├── frontend/
 │   ├── src/
-│   │   ├── components/    # Reusable UI components
-│   │   ├── context/       # React Context providers
-│   │   ├── pages/         # Route pages
+│   │   ├── components/    # UI components (audit, layout, ui)
+│   │   ├── context/       # State management
+│   │   ├── pages/         # Application pages
 │   │   ├── services/      # API client
-│   │   └── Css/           # Custom styles
+│   │   └── main.jsx       # React entry point
 │   ├── package.json
 │   └── .env
-└── deployment_guide.md
+└── README.md
 ```
 
 ## Getting Started
@@ -140,6 +143,7 @@ yt-recomender/
 - **API Keys:**
   - Google Gemini API
   - YouTube Data API v3
+  - Resend API (for email delivery)
   - Cloudinary account
   - Google OAuth credentials
 
@@ -173,6 +177,7 @@ yt-recomender/
    
    YOUTUBE_API_KEY=your-youtube-api-key
    GEMINI_API_KEY=your-gemini-api-key
+   RESEND_API_KEY=your-resend-api-key
    
    CLOUDINARY_CLOUD_NAME=your-cloud-name
    CLOUDINARY_API_KEY=your-api-key
@@ -189,8 +194,8 @@ yt-recomender/
    uvicorn app.main:app --reload
    ```
 
-   Server will start at `http://localhost:8000`
-   - API Docs: `http://localhost:8000/docs`
+   Server will start at `http://localhost:****`
+   - API Docs: `http://localhost:****/docs`
 
 ### Frontend Setup
 
@@ -207,7 +212,7 @@ yt-recomender/
 3. **Configure environment variables**
    Create `.env` file in `frontend/` directory:
    ```env
-   VITE_BACKEND_URL=http://localhost:8000
+   VITE_BACKEND_URL= your-backend-url
    ```
 
 4. **Run development server**
@@ -215,7 +220,7 @@ yt-recomender/
    npm run dev
    ```
 
-   Frontend will start at `http://localhost:5173`
+   Frontend will start at `your-frontend-url`
 
 ## Usage
 
@@ -254,12 +259,6 @@ yt-recomender/
 ### Database
 - `GET /api/db-test` - Test database connection
 
-## Deployment
-
-See [deployment_guide.md](./deployment_guide.md) for detailed instructions on deploying to:
-- **Frontend:** Vercel
-- **Backend:** Render
-
 ## Security Features
 
 - JWT-based authentication with HTTP-only cookies
@@ -297,4 +296,4 @@ For questions or support, please open an issue on GitHub.
 
 ---
 
-**Built with ❤️ for YouTube Creators**
+**Built for the next generation of YouTube Creators**
