@@ -14,19 +14,26 @@
 
 ## Screenshots
 
-### Landing Page
-<img src="./yt-recommender/screenshots/home.png" alt="TubeIntelligence Home" />
-
-*Clean, modern interface showcasing the platform's core value proposition*
-
-### Analysis Configuration
-<img src="./yt-recommender/screenshots/audit.png" alt="Configure Analysis" />
-
-*Select AI-powered intelligence modules for your channel audit*
-
-### AI-Powered Report Analysis
-
 <table>
+  <tr>
+    <td colspan="2">
+      <h3>Landing Page</h3>
+      <img src="./yt-recommender/screenshots/home.png" alt="TubeIntelligence Home" />
+      <p align="center"><em>Clean, modern interface showcasing the platform's core value proposition</em></p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <h3>Analysis Configuration</h3>
+      <img src="./yt-recommender/screenshots/audit.png" alt="Configure Analysis" />
+      <p align="center"><em>Select AI-powered intelligence modules for your channel audit</em></p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <h3>AI-Powered Report Analysis</h3>
+    </td>
+  </tr>
   <tr>
     <td width="50%">
       <img src="./yt-recommender/screenshots/report-detail.png" alt="Semantic Title Engine Analysis" />
