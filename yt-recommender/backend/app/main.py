@@ -17,7 +17,7 @@ app.add_middleware(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000", "http://localhost:8000"],  # Frontend + Backend
+    allow_origins=["http://localhost:5173", "http://localhost:3000", "http://localhost:8000","https://tubeintelligence-client.vercel.app/"],  # Frontend + Backend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
